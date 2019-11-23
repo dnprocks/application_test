@@ -22,7 +22,7 @@ create table company
         primary key,
     name       varchar(100) not null,
     document   varchar(17)  not null,
-    age        int          null,
+--     age        int          null,
     vacancies  int          not null,
     site       varchar(255) not null,
     address_id bigint       null

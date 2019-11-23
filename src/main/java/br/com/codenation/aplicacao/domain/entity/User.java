@@ -44,7 +44,7 @@ public class User {
     @JoinColumn(name = "company_id")
     private Company company;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 

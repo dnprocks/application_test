@@ -10,10 +10,13 @@ import java.util.List;
 
 public interface CompanyDao extends JpaRepository<Company, Long> {
 
-    @Query("SELECT c FROM Company WHERE c.name like :name ORDER BY name")
-    List<Company> findAllByNameOrByName(@Param("name") String name, boolean teste); // WITH HIBERNATE
+//    @Query("SELECT c FROM Company WHERE c.name like :name ORDER BY name")
+//    List<Company> findAllByNameOrByName(@Param("name") String name, boolean teste); // WITH HIBERNATE
 
-    List<Company> findAllByNameOrByName(@Param("name") String name);
+    List<Company> findAllByName(@Param("name") String name);
 
+    List<Company> findAllByNameOrderByName(@Param("name") String name);
+
+    void deleteById(@Param("id") Long id);
 
 }

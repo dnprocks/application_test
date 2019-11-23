@@ -16,12 +16,12 @@ insert into address (id, zip_code, street, number, district, city, country) VALU
 
 -- changeset daniel.pimentel:2.1 dbms:mysql
 
-insert into company (name, document, age, vacancies, site, address_id) VALUES
-     ('Empresa 1','123456789','5','1','www.empresa1.com.br', 1),
-     ('Empresa 2','3215468789','5','4','www.empresa2.com.br', 2),
-     ('Empresa 3','87454512135','5','1','www.empresa3.com.br', 3),
-     ('Empresa 4','987512231','5','5','www.empresa4.com.br', 4),
-     ('Empresa 5','231545689','5','10','www.empresa5.com.br', 5);
+insert into company (name, document, vacancies, site, address_id) VALUES
+     ('Empresa 1','123456789','1','www.empresa1.com.br', 1),
+     ('Empresa 2','3215468789','4','www.empresa2.com.br', 2),
+     ('Empresa 3','87454512135','1','www.empresa3.com.br', 3),
+     ('Empresa 4','987512231','5','www.empresa4.com.br', 4),
+     ('Empresa 5','231545689','10','www.empresa5.com.br', 5);
 
 -- changeset daniel.pimentel:2.2 dbms:mysql
 

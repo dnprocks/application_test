@@ -18,7 +18,6 @@ public class Address implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @NotNull
     @Column(name = "id")
     private Long id;
 

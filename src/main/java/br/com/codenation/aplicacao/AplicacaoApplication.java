@@ -6,13 +6,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.text.html.parser.Entity;
 
+@Configuration
+@EnableScheduling
 @SpringBootApplication
-@ComponentScan(basePackages = {"br.com.codenation.aplicacao.domain.entity"})
+//@ComponentScan(basePackages = {"br.com.codenation.aplicacao.domain.entity"})
 public class AplicacaoApplication {
 
 	public static void main(String[] args) {
