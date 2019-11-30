@@ -4,6 +4,7 @@ import br.com.codenation.aplicacao.domain.dao.AddressDao;
 import br.com.codenation.aplicacao.domain.dao.CompanyDao;
 import br.com.codenation.aplicacao.domain.entity.Address;
 import br.com.codenation.aplicacao.domain.entity.Company;
+import br.com.codenation.aplicacao.domain.entity.User;
 import br.com.codenation.aplicacao.domain.vo.CompanyVO;
 import br.com.codenation.aplicacao.service.CompanyService;
 import org.modelmapper.ModelMapper;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.swing.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +84,40 @@ public class CompanyServiceImpl implements CompanyService {
             companyVOList.add(vo);
         });
         return companyVOList;
+    }
+
+    @Override
+    public List<CompanyVO> findAverageWage() {
+        List<CompanyVO> companyVOList = new ArrayList<>();
+        List<Company> companies = companyDao.findAllCompanies();
+
+        companies.forEach(company -> {
+
+            BigDecimal totalCoast = getTotalSalaries(company);
+
+            CompanyVO vo = new CompanyVO();
+            vo.setId(company.getId());
+            vo.setDocument(company.getDocument());
+            vo.setSite(company.getSite());
+            vo.setVacancies(company.getVacancies());
+
+            if(company.getListUser().size() > 0){
+                vo.setAverageWage(totalCoast.divide(new BigDecimal(company.getListUser().size()), BigDecimal.ROUND_HALF_UP));
+            }else {
+                vo.setAverageWage(new BigDecimal(0));
+            }
+
+            companyVOList.add(vo);
+
+        });
+
+        return companyVOList;
+    }
+
+    private BigDecimal getTotalSalaries(Company company) {
+        return company.getListUser().stream()
+                .map(User::getSalary)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
 }
