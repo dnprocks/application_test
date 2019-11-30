@@ -27,6 +27,11 @@ public class CompanyController {
         return companyService.findAllByName(name);
     }
 
+    @GetMapping("/average")
+    public List<CompanyVO> findAverageWage(){
+        return companyService.findAverageWage();
+    }
+
     @DeleteMapping
     public void deleteCompany(@Param("id") Long id){
         companyService.deleteById(id);

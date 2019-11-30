@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 import java.util.List;
 
@@ -18,5 +19,8 @@ public interface CompanyDao extends JpaRepository<Company, Long> {
     List<Company> findAllByNameOrderByName(@Param("name") String name);
 
     void deleteById(@Param("id") Long id);
+
+    @Query("select c from company c left join c.listUser")
+    List<Company> findAllCompanies();
 
 }

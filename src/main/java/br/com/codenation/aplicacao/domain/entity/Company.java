@@ -30,7 +30,8 @@ public class Company {
     @Column(name = "site", nullable = false, length = 255)
     private String site;
 
-    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)//mappedBy = "id",
+    @JoinColumn(name = "company_id")
     private List<User> listUser;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

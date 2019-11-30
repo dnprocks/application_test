@@ -16,4 +16,6 @@ public interface CompanyService {
 
     List<CompanyVO> findAllByName(String name);
 
+    List<CompanyVO> findAverageWage();
+
 }
