@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
                 name(name).
                 document(document).
                 age(age).
-                login(login).
+                username(login).
                 password(password).
                 salary(salary).
                 company(company).

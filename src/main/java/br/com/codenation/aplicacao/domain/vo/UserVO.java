@@ -17,7 +17,7 @@ public class UserVO {
     private String name;
     private String document;
     private int age;
-    private String login;
+    private String username;
     private BigDecimal salary;
     private CompanyVO company;
     private AddressVO address;

@@ -7,4 +7,5 @@
 
     <include file="src/main/resources/db/changelog/db.changelog-1.sql"/>
     <include file="src/main/resources/db/changelog/db.changelog-2.sql"/>
+    <include file="src/main/resources/db/changelog/db.changelog-3.sql"/>
 </databaseChangeLog>

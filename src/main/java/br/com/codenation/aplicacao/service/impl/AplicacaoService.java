@@ -70,7 +70,7 @@ public class AplicacaoService implements br.com.codenation.aplicacao.service.Apl
         user.setId(id);
         user.setName(nome);
         user.setAge(idade);
-        user.setLogin(login);
+        user.setUsername(login);
         user.setPassword(senha);
         user.setDocument(documento);
         user.setCompany(company);
